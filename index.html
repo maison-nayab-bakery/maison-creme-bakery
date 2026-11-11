@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maison Crème | Premium Bakery</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+
+            <a href="#home" class="logo">Maison <span>Crème.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Our Menu</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="cart-btn" id="cart-button">
+                🛒 Cart <span id="cart-count">0</span>
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="subtitle">FRESHLY BAKED, ALWAYS LOVED</p>
+
+            <h1>Art of Baking,<br>Made with Love.</h1>
+
+            <p class="hero-description">
+                Discover handcrafted pastries, delicious cakes
+                and fresh bakery treats made with passion.
+            </p>
+
+            <a href="#products" class="main-btn">
+                Explore Our Menu
+            </a>
+
+        </div>
+
+    </section>
+    <!-- OFFER BANNER -->
+<div class="offer-banner">🎉 Special Offer: <span>20% OFF</span> on all Cakes | Free Delivery on Orders Above Rs. 3000</div>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <div>
+            <span>🥐</span>
+            <h3>Freshly Baked</h3>
+            <p>Made fresh every day</p>
+        </div>
+
+        <div>
+            <span>🍫</span>
+            <h3>Premium Quality</h3>
+            <p>Finest ingredients</p>
+        </div>
+
+        <div>
+            <span>🎂</span>
+            <h3>Made with Love</h3>
+            <p>Crafted with passion</p>
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+
+        <div class="section-heading">
+            <p class="subtitle">OUR COLLECTION</p>
+            <h2>Fresh From Our Oven</h2>
+            <p>Discover our delicious selection of handmade treats.</p>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search-box">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search cakes, cookies, pastries..."
+            >
+        </div>
+
+        <!-- FILTER BUTTONS -->
+        <div class="filter-buttons">
+
+            <button class="filter-btn active" data-category="All">All</button>
+
+            <button class="filter-btn" data-category="Cakes">Cakes</button>
+
+            <button class="filter-btn" data-category="Pastries">Pastries</button>
+
+            <button class="filter-btn" data-category="Cookies">Cookies</button>
+
+            <button class="filter-btn" data-category="Donuts">Donuts</button>
+
+        </div>
+
+        <!-- PRODUCTS WILL APPEAR HERE -->
+        <div class="product-grid" id="product-container"></div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=900"
+                alt="Fresh bakery pastries"
+            >
+        </div>
+
+        <div class="about-content">
+
+            <p class="subtitle">OUR STORY</p>
+
+            <h2>A Little Taste of Happiness</h2>
+
+            <p>
+                At Maison Crème, we believe every dessert tells a story.
+                Our passion for baking inspires us to create beautiful
+                cakes, fresh pastries and delicious treats.
+            </p>
+
+            <p>
+                Every creation is prepared with quality ingredients,
+                creativity and a little extra love.
+            </p>
+
+            <a href="#products" class="main-btn">Discover More</a>
+
+        </div>
+
+    </section>
+
+
+   <!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+    <p class="subtitle">GET IN TOUCH</p>
+    <h2>Let's Make Your Day Sweeter</h2>
+    <p>Have a question or want to place a special order?</p>
+
+    <form onsubmit="sendContactMessage(event)" style="max-width:500px; margin:20px auto; display:flex; flex-direction:column; gap:12px;">
+        <input type="text" id="contact-name" placeholder="Your Name" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
+        <input type="email" id="contact-email" placeholder="Your Email" required style="padding:12px; border-radius:8px; border:1px solid #ddd;">
+        <textarea id="contact-message" placeholder="Your Message" required style="padding:12px; border-radius:8px; border:1px solid #ddd; height:100px;"></textarea>
+        <button type="submit" class="main-btn">Send Message</button>
+    </form>
+    <p id="contact-msg" style="color:green; font-weight:bold;"></p>
+</section>
+
+
+    <!-- SHOPPING CART -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-panel" id="cart-panel">
+
+        <div class="cart-header">
+            <h2>Your Shopping Cart</h2>
+            <button id="close-cart" class="close-btn">✕</button>
+        </div>
+
+        <div id="cart-items">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <h3>Total: Rs. <span id="cart-total">0</span></h3>
+            <button id="checkout-button" class="checkout-btn">
+                Place Order
+            </button>
+        </div>
+
+    </aside>
+
+<!-- TESTIMONIALS + CUSTOM ORDER  -->
+<section class="testimonials">
+  <p class="subtitle">HAPPY CUSTOMERS</p>
+  <h2>What Our Customers Say</h2>
+  <div class="testi-grid">
+    <div class="testi-card">⭐⭐⭐⭐⭐<p>"Best cake in Karachi! Fresh aur bohat tasty."</p><h4>- Ayesha K.</h4></div>
+    <div class="testi-card">⭐⭐⭐⭐⭐<p>"Delivery bohat fast thi, cake bilkul fresh tha."</p><h4>- Mahnoor S.</h4></div>
+    <div class="testi-card">⭐⭐⭐⭐⭐<p>"Custom birthday cake ne sab ko impress kar diya."</p><h4>- Fatima R.</h4></div>
+  </div>
+</section>
+
+<section class="custom-order" id="custom">
+  <h2>🎂 Order Your Custom Cake</h2>
+<p>Tell us your favourite flavour, design and message!</p>
+  <form onsubmit="placeCustomOrder(event)">
+    <input type="text" id="cust-name" placeholder="your Name" required>
+    <select id="cust-flavour">
+      <option>Chocolate</option>
+      <option>Vanilla</option>
+      <option>Red Velvet</option>
+      <option>Pineapple</option>
+    </select>
+    <input type="text" id="cust-msg-input" placeholder="What should we write on the cake?">
+    <button type="submit" class="main-btn">Send Order Request</button>
+  </form>
+  <p id="custom-msg"></p>
+</section>
+    <!-- FOOTER -->
+    <footer>
+
+        <a href="#home" class="footer-logo">Maison Crème.</a>
+
+        <p>Freshly Baked. Beautifully Made. Always Loved.</p>
+
+        <p class="copyright">
+            © 2026 Maison Crème Bakery. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
